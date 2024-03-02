@@ -1,0 +1,6 @@
+framework module Pods_TheFarm_TheFarmUITests {
+  umbrella header "Pods-TheFarm-TheFarmUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
