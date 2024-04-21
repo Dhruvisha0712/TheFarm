@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var showHidePassBtn: UIButton!
     @IBOutlet weak var passTextField: UITextField!
-    @IBOutlet weak var loginUp: NSLayoutConstraint!
     @IBOutlet weak var rememberMeImgView: UIImageView!
     @IBOutlet weak var rememberMeLbl: UILabel!
     
@@ -39,20 +38,6 @@ class LoginViewController: UIViewController {
         showHidePassBtn.tintColor = .lightGray
         showHidePassBtn.setImage(UIImage(named: "hidden"), for: .normal)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-        
-    @objc func keyboardWillShow(notification: NSNotification) {
-        loginUp.constant = -100
-    }
-        
-    @objc func keyboardWillHide(notification: NSNotification) {
-        loginUp.constant = 10
     }
     
     func addPlaceholder(image: String, text: String) -> NSMutableAttributedString {

@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Toast
 
 class AddDetailsViewController: UIViewController {
 
@@ -23,6 +24,8 @@ class AddDetailsViewController: UIViewController {
     @IBOutlet weak var dropdownTblView: UITableView!
     @IBOutlet weak var waterLbl: UILabel!
     @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var dateTxtField: UITextField!
+    @IBOutlet weak var timeTxtField: UITextField!
     
     var defaults = UserDefaults.standard
     let items = ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v12", "v13", "v14", "v15"]
@@ -39,6 +42,15 @@ class AddDetailsViewController: UIViewController {
         addShadow(viewHere: view3)
         
         areaDropDownView.layer.cornerRadius = 10
+        submitBtn.layer.cornerRadius = 20
+        
+        waterRadioImg.image = UIImage(named: "radioFilled")
+        waterRadioImg.tintColor = .black
+        waterLbl.textColor = .black
+        
+        fertilizerRadioImg.image = UIImage(named: "radioUnfilled")
+        fertilizerRadioImg.tintColor = .lightGray
+        fertilizerLbl.textColor = .lightGray
         
         transparentView.isHidden = true
         
@@ -73,13 +85,11 @@ class AddDetailsViewController: UIViewController {
             
             "land_id": 1,
             "land_part_id[]": 7,
-            "land_part_id[]": 9,
-            "land_part_id[]": 10,
-            "date": "24-02-2024",
+            "date": dateTxtField.text ?? "",
             "person": "",
             "notes": "",
             "volume": "",
-            "time": "23:00:00"
+            "time": timeTxtField.text ?? ""
             
         ] as [String : Any]
         
@@ -93,13 +103,83 @@ class AddDetailsViewController: UIViewController {
             
             if response.error != nil {
                 
-                print("LOGIN RESPONSE ERROR = \(String(describing: response.error?.localizedDescription))")
+                print("WATER RESPONSE ERROR = \(String(describing: response.error?.localizedDescription))")
                 
             } else {
                 
                 if let safeData = response.data {
                     let response = String(data: safeData, encoding: .utf8)
                     print("water response.. : \(response!)")
+                    
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        
+                        let decodedData = try decoder.decode(WaterSaveData.self, from: safeData)
+                        
+                        if decodedData.status == 200 {
+                            print("water decoded data: \(String(describing: decodedData.data))")
+                        } else {
+                            self.view.makeToast(decodedData.message)
+                        }
+                        
+                    } catch {
+                        print("water save data decode error: \(error)")
+                    }
+                }
+            }
+        }
+    }
+    
+    func performReqForFertilizer() {
+        let tokenType = defaults.string(forKey: Constants.tokenTypeKey)
+        let accessToken = defaults.string(forKey: Constants.accessTokenKey)
+        
+        let parameters = [
+            
+            "land_id": 1,
+            "land_part_id[]": 7,
+            "date": dateTxtField.text ?? "",
+            "person": "",
+            "notes": "",
+            "volume": "",
+            "time": timeTxtField.text ?? ""
+            
+        ] as [String : Any]
+        
+        let headers: HTTPHeaders = [
+            
+            "Authorization": "\(tokenType ?? "") \(accessToken ?? "")"
+            
+        ]
+        
+        AF.request(saveFertilizerURL, method: .post, parameters: parameters, headers: headers).responseData { response in
+            
+            if response.error != nil {
+                
+                print("FERTILIZER RESPONSE ERROR = \(String(describing: response.error?.localizedDescription))")
+                
+            } else {
+                
+                if let safeData = response.data {
+                    let response = String(data: safeData, encoding: .utf8)
+                    print("fertilizer response.. : \(response!)")
+                    
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        
+                        let decodedData = try decoder.decode(FertilizerSaveData.self, from: safeData)
+                        
+                        if decodedData.status == 200 {
+                            print("fertilizer decoded data: \(String(describing: decodedData.data))")
+                        } else {
+                            self.view.makeToast(decodedData.message)
+                        }
+                        
+                    } catch {
+                        print("fertilizer save data decode error: \(error)")
+                    }
                 }
             }
         }
@@ -131,7 +211,14 @@ class AddDetailsViewController: UIViewController {
     }
     
     @IBAction func submitBtnPressed(_ sender: UIButton) {
-        performReqForWater()
+        if waterRadioImg.image == UIImage(named: "radioFilled") {
+            print("water save")
+            performReqForWater()
+            
+        } else if fertilizerRadioImg.image == UIImage(named: "radioFilled") {
+            print("fertilizer save")
+            performReqForFertilizer()
+        }
     }
     
 }

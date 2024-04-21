@@ -234,7 +234,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="COa-we-dwp"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Water Supply Time Range" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrY-Lm-asG" userLabel="Label 2">
                                                 <rect key="frame" x="20" y="117.66666666666663" width="323" height="17.666666666666657"/>
@@ -249,7 +249,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="OAu-kc-lIA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -338,11 +338,13 @@
                     <connections>
                         <outlet property="areaDropDownView" destination="Lfd-bb-elQ" id="4a5-gn-YaH"/>
                         <outlet property="areaLbl" destination="UhD-Lx-zzJ" id="tvL-FR-Gkp"/>
+                        <outlet property="dateTxtField" destination="kgr-i1-yv5" id="KJR-Dt-DaD"/>
                         <outlet property="dropDownBtn" destination="dKh-k6-OPQ" id="Bvs-Dv-MVG"/>
                         <outlet property="dropdownTblView" destination="oih-Jz-Fej" id="8bW-hG-hgU"/>
                         <outlet property="fertilizerLbl" destination="aie-jf-oKh" id="QIL-J4-iua"/>
                         <outlet property="fertilizerRadioImg" destination="sbx-Zu-n40" id="fXK-uM-fqu"/>
                         <outlet property="submitBtn" destination="zfY-5X-Td4" id="QrH-aW-FmO"/>
+                        <outlet property="timeTxtField" destination="eec-yZ-yYC" id="gVl-Ft-juZ"/>
                         <outlet property="transparentView" destination="HG6-Tl-akq" id="qyN-DY-3Dc"/>
                         <outlet property="view1" destination="wv8-xj-PKj" id="1WJ-oW-Jwu"/>
                         <outlet property="view2" destination="hjJ-AJ-fbW" id="gXB-7y-Dcg"/>
@@ -389,7 +391,7 @@
                                         <color key="textColor" red="0.29803922770000002" green="0.56862747670000002" blue="0.26274511220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-86-eML" userLabel="Email feild">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="admin@super.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-86-eML" userLabel="Email feild">
                                         <rect key="frame" x="30" y="220.33333333333331" width="333" height="50"/>
                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                         <constraints>
@@ -398,7 +400,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f3t-o6-VJX" userLabel="Pass feild">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="superadmin" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f3t-o6-VJX" userLabel="Pass feild">
                                         <rect key="frame" x="30" y="290.33333333333331" width="333" height="50"/>
                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                         <constraints>
@@ -513,7 +515,6 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="ul6-86-eML" id="5s9-GD-OgZ"/>
-                        <outlet property="loginUp" destination="1jD-gg-cAj" id="d0w-Lv-oOe"/>
                         <outlet property="loginView" destination="oCw-fQ-yWi" id="xU9-qK-vlb"/>
                         <outlet property="passTextField" destination="f3t-o6-VJX" id="Lse-fI-6eS"/>
                         <outlet property="rememberMeImgView" destination="BXj-6f-llp" id="9zx-On-q9y"/>

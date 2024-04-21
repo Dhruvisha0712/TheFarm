@@ -24,6 +24,9 @@
 		A2576A5E2B8A3F7C006583AD /* TheFarmUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2576A5D2B8A3F7C006583AD /* TheFarmUITestsLaunchTests.swift */; };
 		A2AA04FB2B8F9DBB001AEDD4 /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AA04F92B8F9DBB001AEDD4 /* DropDownTableViewCell.swift */; };
 		A2AA04FC2B8F9DBB001AEDD4 /* DropDownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2AA04FA2B8F9DBB001AEDD4 /* DropDownTableViewCell.xib */; };
+		A2BC4C6C2B976FA400D59E86 /* WaterSaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC4C6B2B976FA400D59E86 /* WaterSaveData.swift */; };
+		A2BC4C6E2B9770C700D59E86 /* FertilizerSaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BC4C6D2B9770C700D59E86 /* FertilizerSaveData.swift */; };
+		A2BC4C712B9771D400D59E86 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A2BC4C702B9771D400D59E86 /* IQKeyboardManagerSwift */; };
 		B27400753D246DA5D9F83719 /* Pods_TheFarm_TheFarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91BC41056F657FDCF971DD8C /* Pods_TheFarm_TheFarmUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +75,8 @@
 		A2576A5D2B8A3F7C006583AD /* TheFarmUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheFarmUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A2AA04F92B8F9DBB001AEDD4 /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
 		A2AA04FA2B8F9DBB001AEDD4 /* DropDownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropDownTableViewCell.xib; sourceTree = "<group>"; };
+		A2BC4C6B2B976FA400D59E86 /* WaterSaveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSaveData.swift; sourceTree = "<group>"; };
+		A2BC4C6D2B9770C700D59E86 /* FertilizerSaveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FertilizerSaveData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +86,7 @@
 			files = (
 				A212CB5C2B8F7ABC00675AC6 /* Toast in Frameworks */,
 				253ADCABB1DF4BCB12D23C3A /* Pods_TheFarm.framework in Frameworks */,
+				A2BC4C712B9771D400D59E86 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				A212CB582B8F77A100675AC6 /* LoginData.swift */,
+				A2BC4C6B2B976FA400D59E86 /* WaterSaveData.swift */,
+				A2BC4C6D2B9770C700D59E86 /* FertilizerSaveData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -228,6 +236,7 @@
 			name = TheFarm;
 			packageProductDependencies = (
 				A212CB5B2B8F7ABC00675AC6 /* Toast */,
+				A2BC4C702B9771D400D59E86 /* IQKeyboardManagerSwift */,
 			);
 			productName = TheFarm;
 			productReference = A2576A372B8A3F7B006583AD /* TheFarm.app */;
@@ -306,6 +315,7 @@
 			mainGroup = A2576A2E2B8A3F7B006583AD;
 			packageReferences = (
 				A212CB5A2B8F7ABC00675AC6 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				A2BC4C6F2B9771D400D59E86 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = A2576A382B8A3F7B006583AD /* Products */;
 			projectDirPath = "";
@@ -456,9 +466,11 @@
 			files = (
 				A22217772B8B364E00EED7F9 /* Constants.swift in Sources */,
 				A22217752B8B32F700EED7F9 /* LoginViewController.swift in Sources */,
+				A2BC4C6C2B976FA400D59E86 /* WaterSaveData.swift in Sources */,
 				A2AA04FB2B8F9DBB001AEDD4 /* DropDownTableViewCell.swift in Sources */,
 				A2576A3F2B8A3F7B006583AD /* AddDetailsViewController.swift in Sources */,
 				A2576A3B2B8A3F7B006583AD /* AppDelegate.swift in Sources */,
+				A2BC4C6E2B9770C700D59E86 /* FertilizerSaveData.swift in Sources */,
 				A2576A3D2B8A3F7B006583AD /* SceneDelegate.swift in Sources */,
 				A212CB592B8F77A200675AC6 /* LoginData.swift in Sources */,
 			);
@@ -831,6 +843,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		A2BC4C6F2B9771D400D59E86 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -838,6 +858,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A212CB5A2B8F7ABC00675AC6 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		A2BC4C702B9771D400D59E86 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2BC4C6F2B9771D400D59E86 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
